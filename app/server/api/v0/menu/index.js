@@ -6,10 +6,6 @@ const   config      = require('./../../../../config');
 		Schema      = mongoose.Schema;
 		dbUrl       = config.db.url;
 
-app.all('/', (req, res) => {
-	res.send('loaded');
-});
-
 app.get('/', (req, res) => {
 	menuModel.find({}, (err, items) => {
 		if (err) {
@@ -18,9 +14,5 @@ app.get('/', (req, res) => {
 			res.send(items);
 		}
 	});
-});
-
-app.post('/', (req, res) => {
-	res.send('Bingo!')
 });
 
