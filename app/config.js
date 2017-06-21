@@ -12,7 +12,7 @@ const   mongoose    = require('mongoose'),
 
 module.exports = {
 	server: {
-		port: 8000
+		port: 4321
 	},
 	db: {
 		url: 'mongodb://localhost:27017/droneCafe',

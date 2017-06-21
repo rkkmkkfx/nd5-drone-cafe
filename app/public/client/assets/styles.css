@@ -1,16 +1,10 @@
 .grid-sizer,
 .grid-item {
-    width: 33.3333333333%;
+    width: 25%;
 }
 
-user-panel {
-    height: 100vh;
-    position: fixed;
-}
-
-@media (max-width: 768px) {
-    .grid-sizer,
-    .grid-item {
-        width: 50%;
-    }
+.menu-btn {
+    position: fixed !important;
+    right: 15px;
+    bottom: 15px;
 }
