@@ -1,11 +1,11 @@
 const   express     = require('express'),
-		config      = require('./../../config'),
-		mongoose    = require('mongoose'),
-		data        = config.db.data,
-		app         = module.exports = express(),
-		db          = mongoose.connection,
-		menuModel   = config.menuModel,
-		dbUrl       = config.db.url;
+	config      = require('./../../config'),
+	mongoose    = require('mongoose'),
+	data        = config.db.data,
+	app         = module.exports = express(),
+	db          = mongoose.connection,
+	menuModel   = config.menuModel,
+	dbUrl       = config.db.url;
 
 const loadFromJSON = () => {
 	menuModel.find({}, (err, items) => {

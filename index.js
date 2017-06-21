@@ -1,21 +1,28 @@
-'use strict';
+"use strict";
 
-const   config      = require('./app/config'),
-		express     = require('express'),
-		bodyParser  = require('body-parser'),
-		app         = express(),
-		server      = require('./app/server'),
-		port        = config.server.port;
+const   config = require('./app/config'),
+		server = require('./app/server'),
+		express = require('express'),
+		bodyParser = require('body-parser'),
+		app = module.exports = express(),
+		kitchen = express(),
+		mongoose = require('mongoose'),
+		db = mongoose.connection,
+		url = config.db.url,
+		api = server.api;
+
+server.db.connect();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/api', require('./app/server/api'));
+app.use('/api', api);
 
-app.all('*', (req, res) => {
-	res.send('ok');
-	console.log('!!!');
-});
+app.use(express.static(__dirname + '/node_modules'));
 
-server.connect(port);
-server.db.connect();
+app.use(express.static('./app/public/client'));
 
+kitchen.use(express.static('./app/public/kitchen'));
+
+app.use('/kitchen', kitchen);
+
+app.listen(config.server.port, () => console.log(`Listening on port ${config.server.port}`));
