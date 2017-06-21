@@ -10,17 +10,32 @@
 	<script src="angular-resource/angular-resource.js"></script>
 	<script src="restangular/dist/restangular.js"></script>
 	
+	<link rel="stylesheet" href="assets/styles.css">
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
 </head>
 <body>
 
-<ng-view></ng-view>
+<div class="row">
+	
+	<user-panel class="col s12 m4 l3 deep-purple darken-4"></user-panel>
+	
+	<div class="col s12 m8 l9 right">
+		<ng-view></ng-view>
+	</div>
+
+</div>
+
 
 <script src="src/ClientApp.js"></script>
 <script src="src/ClientService/ClientService.js"></script>
 <script src="src/DishesList/DishesListComponent.js"></script>
+<script src="src/UserPanel/UserPanelComponent.js"></script>
 
 <script src="materialize-css/dist/js/materialize.js"></script>
+<script src="masonry-layout/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
 </body>
 </html>

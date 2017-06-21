@@ -1,17 +1,27 @@
-<div class="row">
-	<div class="col s12 m4"  ng-repeat="dish in $ctrl.dishes">
-		<div class="card">
+<div class="grid row">
+	<div class="grid-sizer"></div>
+	<div class="grid-item col s12 m6 l4"  ng-repeat="dish in $ctrl.dishes">
+		<div class="card hoverable">
 			<div class="card-image">
 				<img src="{{ dish.image }}">
-				<span class="card-title">{{ dish.title }}</span>
+				<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
 			</div>
 			<div class="card-content">
-				<p>I am a very simple card. I am good at containing small bits of information.
-					I am convenient because I require little markup to use effectively.</p>
-			</div>
-			<div class="card-action">
-				<a href="#">This is a link</a>
+				<span class="card-title">{{ dish.title }}</span>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).ready(() => {
+		const $grid = $('.grid').imagesLoaded( function() {
+			// init Masonry after all images have loaded
+			$grid.masonry({
+				itemSelector: '.grid-item',
+				columnWidth: '.grid-sizer',
+				percentPosition: true
+			});
+		});
+	});
+</script>
