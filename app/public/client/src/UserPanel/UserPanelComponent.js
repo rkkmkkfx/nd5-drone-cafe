@@ -2,9 +2,9 @@
 
 clientApp.component('userPanel', {
 
-	controller: function userPanelCtrl(ClientService) {
+	controller: function userPanelCtrl(UserService) {
 
-		this.user = ClientService.query();
+		this.user = UserService.query();
 
 	},
 

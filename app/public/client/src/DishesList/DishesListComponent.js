@@ -2,9 +2,9 @@
 
 clientApp.component('dishesList', {
 
-	controller: function DishesListCtrl(ClientService) {
+	controller: function DishesListCtrl(MenuService) {
 
-		this.dishes = ClientService.query();
+		this.dishes = MenuService.query();
 
 	},
 

@@ -14,7 +14,7 @@ module('ClientApp')
 				redirectTo: '/'
 			});
 
-			RestangularProvider.setBaseUrl('/api/v1/data/');
+			RestangularProvider.setBaseUrl('/api/v0/');
 
 		}
 	])
