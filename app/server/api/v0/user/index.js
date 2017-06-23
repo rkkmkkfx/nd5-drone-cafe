@@ -9,6 +9,7 @@ const   config = require('./../../../../config'),
 	url = config.db.url;
 
 app.get('/', (req, res) => {
+	console.log(req.body);
 	config.menuModel.find({}, (err, items) => {
 		if (err) {
 			res.send(err);

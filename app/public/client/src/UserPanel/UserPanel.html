@@ -1,13 +1,13 @@
 
 
 <ul id="slide-out" class="side-nav">
-	<li><div class="userView">
+	<li><div class="userView" ng-controller="UserLoginCtrl as userLogin">
 		<div class="background">
 			<img src="images/office.jpg">
 		</div>
 		<a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-		<a href="#!name"><span class="white-text name">John Doe</span></a>
-		<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+		<a href="#!name"><span class="white-text name">{{ userLogin.data.name }}</span></a>
+		<a href="#!email"><span class="white-text email">{{ userLogin.data.email }}</span></a>
 	</div></li>
 	<li><a href="#!">Меню</a></li>
 	<li><a href="#!">Пополнить счет</a></li>
