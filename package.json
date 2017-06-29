@@ -4,6 +4,7 @@
   "description": "В рамках дипломного проект необходимо разработать систему автоматизации ресторана, в котором вместо официантов используются автономные дроны, а заказ размещается через простое веб-приложение.",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm install",
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +18,7 @@
   "homepage": "https://bitbucket.org/netology-university/drone-cafe#readme",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-messages": "^1.6.4",
     "angular-resource": "^1.6.4",
     "angular-route": "^1.6.4",
     "express": "^4.15.3",
@@ -29,5 +31,9 @@
     "netology-fake-drone-api": "^1.0.1",
     "restangular": "^1.6.1"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "connect-browser-sync": "^2.1.0"
+  }
 }

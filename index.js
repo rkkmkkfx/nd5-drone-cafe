@@ -13,6 +13,12 @@ const   config = require('./app/config'),
 
 server.db.connect();
 
+if (app.get('env') === 'development') {
+	var browserSync = require('browser-sync');
+	var bs = browserSync.create().init({ logSnippet: false });
+	app.use(require('connect-browser-sync')(bs));
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', api);

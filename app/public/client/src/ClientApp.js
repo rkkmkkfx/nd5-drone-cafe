@@ -1,4 +1,4 @@
-var clientApp = angular.module('ClientApp', ['ngRoute', 'ngResource', 'restangular']);
+var clientApp = angular.module('ClientApp', ['ngRoute', 'ngResource', 'restangular', 'ngMessages']);
 
 angular.
 module('ClientApp')

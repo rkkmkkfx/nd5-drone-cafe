@@ -8,17 +8,31 @@ const   config = require('./../../../../config'),
 	db = mongoose.connection,
 	url = config.db.url;
 
-app.get('/', (req, res) => {
-	console.log(req.body);
-	config.menuModel.find({}, (err, items) => {
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({"extended": true}));
+
+app.post('/', (req, res) => {
+	console.log('post');
+	let newUser = new config.userModel(req.body);
+	newUser.save(err => {
 		if (err) {
 			res.send(err);
 		} else {
-			res.send(items);
+			res.json(newUser);
 		}
-	});
+	})
 });
-app.post('/add', (req, res) => {
+
+app.get('/', (req, res) => {
+	config.userModel.findOne({email: req.query.email}, (err, result) => {
+		if (err) {
+			res.send(err);
+		} else {
+			res.json(result);
+		}
+	})
+});
+/*app.post('/add', (req, res) => {
 	const data = {
 		name: req.body.name,
 		desc: req.body.desc,
@@ -81,4 +95,4 @@ app.delete('/del/:id', (req, res) => {
 			res.send('task deleted')
 		}
 	});
-});
+})*/
