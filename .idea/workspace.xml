@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98fc22eb-f867-4a3f-a7ee-6ed432753099" name="Default" comment="Дипломный проект &quot;Node, Angular и MongoDB: разработка полноценных веб-приложений&quot;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/client/src/CartService/CartService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package-lock.jsonbackup" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/public/client/src/UserLogin/UserLogin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/public/client/src/UserLogin/UserLoginComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/public/client/src/UserService/UserService.js" afterPath="" />
+    <list default="true" id="98fc22eb-f867-4a3f-a7ee-6ed432753099" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config.js" afterPath="$PROJECT_DIR$/app/config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/client/index.html" afterPath="$PROJECT_DIR$/app/public/client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/client/src/ClientApp.js" afterPath="$PROJECT_DIR$/app/public/client/src/ClientApp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/client/src/CartService/CartService.js" afterPath="$PROJECT_DIR$/app/public/client/src/CartService/CartService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/client/src/DishesList/DishesList.html" afterPath="$PROJECT_DIR$/app/public/client/src/DishesList/DishesList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/client/src/DishesList/DishesListComponent.js" afterPath="$PROJECT_DIR$/app/public/client/src/DishesList/DishesListComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanel.html" afterPath="$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanelComponent.js" afterPath="$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanelComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/api/v0/user/index.js" afterPath="$PROJECT_DIR$/app/server/api/v0/user/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,18 +30,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/public/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientApp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/public/client/src/ClientApp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="96" lean-forward="false" selection-start-line="0" selection-start-column="96" selection-end-line="0" selection-end-column="96" />
+            <state relative-caret-position="409">
+              <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -57,8 +40,8 @@
       <file leaf-file-name="UserPanel.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="52" column="11" lean-forward="false" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+            <state relative-caret-position="388">
+              <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
               <folding>
                 <element signature="n#div#0;n#!!top" expanded="false" />
               </folding>
@@ -66,31 +49,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
+      <file leaf-file-name="CartComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="75">
+              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CartComponent.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CartService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/public/client/src/CartService/CartService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserPanelComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanelComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+            <state relative-caret-position="270">
+              <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -164,9 +147,7 @@
         <option value="$PROJECT_DIR$/app/public/client/src/ClientService/ClientService.js" />
         <option value="$PROJECT_DIR$/app/public/client/src/DishesList/index.html" />
         <option value="$PROJECT_DIR$/app/public/client/assets/scripts.js" />
-        <option value="$PROJECT_DIR$/app/public/client/src/DishesList/DishesList.html" />
         <option value="$PROJECT_DIR$/app/public/client/assets/styles.css" />
-        <option value="$PROJECT_DIR$/app/public/client/src/DishesList/DishesListComponent.js" />
         <option value="$PROJECT_DIR$/app/public/client/src/UserLogin/UserLoginComponent.js" />
         <option value="$PROJECT_DIR$/app/public/client/src/UserLogin/UserLogin.html" />
         <option value="$PROJECT_DIR$/app/public/client/src/MenuService/MenuService.js" />
@@ -180,9 +161,13 @@
         <option value="$PROJECT_DIR$/app/public/client/src/ClientApp.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanel.html" />
         <option value="$PROJECT_DIR$/app/public/client/index.html" />
+        <option value="$PROJECT_DIR$/app/public/client/src/DishesList/DishesList.html" />
+        <option value="$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.js" />
+        <option value="$PROJECT_DIR$/app/public/client/src/DishesList/DishesListComponent.js" />
         <option value="$PROJECT_DIR$/app/public/client/src/CartService/CartService.js" />
+        <option value="$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanel.html" />
+        <option value="$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.html" />
       </list>
     </option>
   </component>
@@ -381,7 +366,97 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="UserPanel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ND-5-drone-cafe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ND-5-drone-cafe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DishesList" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ND-5-drone-cafe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ND-5-drone-cafe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="CartService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ND-5-drone-cafe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ND-5-drone-cafe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CartComponent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -403,13 +478,14 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/server" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/public/client" />
       <recent name="$PROJECT_DIR$/app/server/api/v0/menu" />
       <recent name="$PROJECT_DIR$/app/server/db" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/public/client/src" />
+      <recent name="$PROJECT_DIR$/app/server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -529,7 +605,7 @@
       <workItem from="1498033401404" duration="22632000" />
       <workItem from="1498454211028" duration="10189000" />
       <workItem from="1498566255846" duration="18669000" />
-      <workItem from="1498663120935" duration="21286000" />
+      <workItem from="1498663120935" duration="24859000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1496476349521</created>
@@ -594,11 +670,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498188513589</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Дипломный проект &quot;Node, Angular и MongoDB: разработка полноценных веб-приложений&quot;">
+      <created>1498747304962</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1498747304962</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136438000" />
+    <option name="totallyTimeSpent" value="140011000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -611,8 +694,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="876" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22105263" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22105263" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19178082" sideWeight="0.5059571" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -648,8 +732,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/examples/drone.js" />
-    <entry file="file://$PROJECT_DIR$/package.json" />
     <entry file="file://$PROJECT_DIR$/menu.json" />
     <entry file="file://$PROJECT_DIR$/examples/drone.js" />
     <entry file="file://$PROJECT_DIR$/package.json" />
@@ -711,21 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/public/client/src/DishesList/DishesList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/public/client/src/DishesList/DishesListComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,10 +897,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/client/src/DishesList/DishesListComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/client/src/DishesList/DishesList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="9" column="60" lean-forward="true" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -846,28 +937,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/client/src/CartService/CartService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/public/client/src/UserPanel/UserPanel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="52" column="11" lean-forward="false" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+        <state relative-caret-position="388">
+          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding>
             <element signature="n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/public/client/index.html">
+    <entry file="file://$PROJECT_DIR$/app/public/client/src/CartComponent/CartComponent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/public/client/src/CartService/CartService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
           <folding />
         </state>
       </provider>

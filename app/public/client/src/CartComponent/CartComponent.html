@@ -1,0 +1,5 @@
+<div class="collection red darken-4">
+    <a href="#!" class="collection-item" ng-repeat="(itemId,item) in $ctrl.cartItems" ng-click="$ctrl.removeFromCart(itemId)">
+        <span class="badge">{{item.quantity}}</span>{{ item.title }}
+    </a>
+</div>
