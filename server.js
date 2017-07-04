@@ -132,9 +132,10 @@ db.once('open', function() {
 					if (err) res.send(err);
 					res.json(orders);
 				});
-			} else {
-				const query = JSON.parse(req.query.user);
-				config.orderModel.find({'user._id': query.data._id}, (err, orders) => {
+			} else if (req.query.user) {
+				const query = JSON.parse(req.query.user),
+					userId = (query.data) ? query.data._id : query._id;
+				config.orderModel.find({'user._id': userId}, (err, orders) => {
 					if (err) res.send(err);
 					res.json(orders);
 				});
