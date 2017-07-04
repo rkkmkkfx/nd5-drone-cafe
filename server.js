@@ -133,9 +133,8 @@ db.once('open', function() {
 					res.json(orders);
 				});
 			} else {
-				const query = JSON.parse(req.query.data);
-				console.log(query);
-				config.orderModel.find({'user._id': query._id}, (err, orders) => {
+				const query = JSON.parse(req.query.user);
+				config.orderModel.find({'user._id': query.data._id}, (err, orders) => {
 					if (err) res.send(err);
 					res.json(orders);
 				});
@@ -145,6 +144,7 @@ db.once('open', function() {
 	APIv0.route('/orders/:orderId')
 		//UPDATE
 		.put((req, res) => {
+			console.log(req.params);
 			config.orderModel.findById(req.params.orderId, (err, order) => {
 				if (err) {
 					res.send(err);

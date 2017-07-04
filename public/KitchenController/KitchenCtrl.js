@@ -27,7 +27,7 @@ angular
 
 		$scope.finish = function(order, orderIndex) {
 			order.status = 'Доставляется';
-			$scope.cookingMeals.splice(orderIndex, 1);
+			$scope.processed.splice(orderIndex, 1);
 
 			socket.emit('status changed', order);
 

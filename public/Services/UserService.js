@@ -41,7 +41,9 @@ angular
 
 			getUserOrders: function(user) {
 				const ordersQuery = {
-					params: user
+					params: {
+						user
+					}
 				};
 				return $http.get('/api/orders', ordersQuery);
 			},
