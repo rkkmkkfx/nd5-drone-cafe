@@ -6,15 +6,15 @@ angular
 
 		let socket = io();
 
-		//получение списка заказанных блюд
-		kitchenService.getOrders('Заказано').then(function(data) {
-			$scope.pending = data.data;
+		kitchenService.getOrders('Заказано').then(function(res) {
+			console.log(res.data);
+			$scope.pending = res.data;
 		});
-		//получение списка готовящихся блюд
-		kitchenService.getOrders('Готовится').then(function(data) {
-			$scope.processed = data.data;
+
+		kitchenService.getOrders('Готовится').then(function(res) {
+			$scope.processed = res.data;
 		});
-		//переход к приготовлению заказа
+
 		$scope.start = function(order, orderIndex) {
 			order.status = 'Готовится';
 			$scope.pending.splice(orderIndex, 1);
@@ -24,7 +24,7 @@ angular
 
 			kitchenService.updateOrderStatus(order._id, order.status, order.price);
 		};
-		//переход к доставке заказа
+
 		$scope.finish = function(order, orderIndex) {
 			order.status = 'Доставляется';
 			$scope.cookingMeals.splice(orderIndex, 1);

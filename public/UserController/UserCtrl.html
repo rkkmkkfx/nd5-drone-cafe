@@ -82,9 +82,9 @@
 				<h6>Список заказанных блюд</h6>
 				<p></p>
 				<div class="list-group">
-					<div class="list-group-item" data-ng-repeat="singleMeal in userOrder">
-						<label class="list-group-item-heading">{{singleMeal.mealName}}</label>
-						<span align="right">{{singleMeal.status}}</span>
+					<div class="list-group-item" data-ng-repeat="order in userOrder">
+						<label class="list-group-item-heading">{{order.meal.title}}</label>
+						<span align="right">{{order.status}}</span>
 						<button class="waves-effect waves-light btn" ng-click="deleteMealFromOrder(singleMeal, $index)" data-ng-if="singleMeal.status == 'Заказано'">Удалить</button>
 						<button class="waves-effect waves-light btn" ng-click="orderCancellation(singleMeal, $index)" data-ng-if="singleMeal.status == 'Возникли сложности'">Отменить заказ</button>
 						<button class="waves-effect waves-light btn" ng-click="addMealToOrderWithSale(singleMeal, $index)" data-ng-if="singleMeal.status == 'Возникли сложности'">Повторить со скидкой 5%</button>

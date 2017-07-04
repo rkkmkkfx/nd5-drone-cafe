@@ -111,13 +111,20 @@ db.once('open', function() {
 		//CREATE
 		.post((req, res) => {
 			const newOrder = new config.orderModel({
-				userId : req.body.user,
-				mealId : req.body.meal,
-				status : 'Заказано',
+				user: {
+					id: req.body.user._id,
+					name: req.body.user.name
+				},
+				meal: {
+					id: req.body.meal._id,
+					title: req.body.meal.title,
+					image: req.body.meal.image
+				},
 				price  : req.body.meal.price
 			});
 			newOrder.save((err) => {
 				if (err) {
+					console.log(err);
 					res.send(err);
 				} else {
 					res.send('Заказ создан');
@@ -127,8 +134,9 @@ db.once('open', function() {
 		})
 		//READ
 		.get((req, res) => {
-			config.orderModel.find({user: req.body.user}, (err, orders) => {
+			config.orderModel.find({user: {id: req.body.user._id}}, (err, orders) => {
 				if (err) res.send(err);
+				console.log(orders);
 				res.json(orders);
 			});
 		});

@@ -26,8 +26,15 @@ const   mongoose    = require('mongoose'),
 	}),
 	userModel   = mongoose.model('user', userSchema),
 	orderSchema = new Schema({
-		meal: mealSchema,
-		user: userSchema,
+		meal: {
+			id: mongoose.Schema.ObjectId,
+			title: String,
+			image: String
+		},
+		user: {
+			id: mongoose.Schema.ObjectId,
+			name: String
+		},
 		status: {
 			type: String,
 			enum: ['Заказано', 'Готовится', 'Доставляется', 'Возникли сложности', 'Подано'],
