@@ -16,7 +16,10 @@ angular
 						console.log(activeUser);
 						if(activeUser.data === null) {
 							userService.createNewUser($scope.user)
-								.then(newUser => $scope.user = newUser.data);
+								.then(newUser => {
+									$scope.user = newUser.data;
+									Materialize.toast('New user created!', 4000);
+								});
 						} else {
 							$scope.user = activeUser.data;
 							userService.getUserOrders(activeUser)
@@ -26,6 +29,10 @@ angular
 				);
 			userService.getMenu().then(menu => {
 				$scope.meals = menu.data;
+				//init tooltips
+				$(document).ready(function(){
+					$('.tooltipped').tooltip({delay: 50});
+				});
 				//init grid
 				let grid = $('.grid').imagesLoaded( function() {
 					grid.masonry({
@@ -46,6 +53,10 @@ angular
 				$('.mainMenu').removeClass('pulse');
 			}, 5000);
 			$('.mainMenu').addClass('pulse');
+
+			$(document).ready(function(){
+				$('.tooltipped').tooltip({delay: 50});
+			});
 
 			$scope.user.points = $scope.user.points - meal.price;
 
@@ -81,7 +92,7 @@ angular
 			userService.getUserOrders($scope.user).then(function(orders) {
 				if(orders.data.length !== undefined) {
 					$scope.userOrder = orders.data;
-				};
+				}
 			});
 		});
 
@@ -106,7 +117,7 @@ angular
 			userService.getUserOrders($scope.user).then(function(orders) {
 				if(orders.data.length !== undefined) {
 					$scope.userOrder = orders.data;
-				};
+				}
 			});
 		});
 

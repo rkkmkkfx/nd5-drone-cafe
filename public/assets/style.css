@@ -20,10 +20,13 @@
     margin-top: 0;
 }
 
-cart-component .collection {
-    border: none;
-}
-
 .orders {
     color: #333;
+}
+.tooltipped[disabled],
+.tooltipped[disabled]:hover {
+    pointer-events: all;
+}
+.tooltipped[disabled]:active {
+    pointer-events: none;
 }

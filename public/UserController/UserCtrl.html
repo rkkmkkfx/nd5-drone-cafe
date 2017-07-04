@@ -75,11 +75,8 @@
 			</div></li>
 			<li><a ng-click="addAmount()">Пополнить счет</a></li>
 			<li><div class="divider"></div></li>
-			<li><a data-activates="slide-out">Меню</a></li>
-			
-			<li><div class="divider"></div></li>
 			<li><div class="row">
-				<h6>Список заказанных блюд</h6>
+				<h6 class="center">Список заказанных блюд</h6>
 				<div class="orders">
 					<div class="col s12" data-ng-repeat="order in userOrder">
 						<div class="card">
@@ -131,7 +128,7 @@
 				</div>
 				<div class="card-content">
 					<span class="card-title activator grey-text text-darken-4">{{ meal.title }}<i class="material-icons right">more_vert</i></span>
-					<p><a class="waves-effect waves-light btn" ng-click="addMealToOrder(meal)" data-ng-disabled="user.points <= meal.price">Заказать</a></p>
+					<p><a class="waves-effect waves-light btn tooltipped" ng-click="addMealToOrder(meal)" data-ng-disabled="user.points <= meal.price" data-position="top" data-delay="50" data-tooltip="{{ (user.points <= meal.price) ? 'Не хватает ' + (meal.price - user.points) + ' points' : meal.price + 'points' }}">Заказать</a></p>
 				</div>
 				<div class="card-reveal">
 					<span class="card-title grey-text text-darken-4">Ингридиенты<i class="material-icons right">close</i></span>
