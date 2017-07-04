@@ -1,0 +1,35 @@
+<div class="container">
+	
+	<div class="left_block">
+		<h5><u>Список заказанных блюд</u></h5>
+		<div class="col s12 m7" data-ng-repeat="order in orderedMeals">
+			<div class="card horizontal">
+				<div class="card-stacked">
+					<div class="card-content">
+						<p>{{order.mealName}}</p>
+					</div>
+					<div class="card-action">
+						<button class="right-align waves-effect waves-light btn cookpage__list-button" data-ng-click="start(order, $index)">Начать готовить</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="right_block">
+		<h5><u>Список готовящихся блюд</u></h5>
+		<div class="col s12 m7" data-ng-repeat="order in cookingMeals">
+			<div class="card horizontal">
+				<div class="card-stacked">
+					<div class="card-content">
+						<p>{{order.mealName}}</p>
+					</div>
+					<div class="card-action">
+						<button class="right-align waves-effect waves-light btn cookpage__list-button" data-ng-click="finish(order, $index)">Готово</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="droneCafe">
+<head>
+	<meta charset="utf-8">
+	<title>Drone cafe</title>
+	
+	<meta name="description" content="Drone cafe Application">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<script src="https://yastatic.net/jquery/3.1.1/jquery.min.js"></script>
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+	<script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+	
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/socket.io-client/dist/socket.io.min.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+	<script src="bower_components/restangular/dist/restangular.min.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
+	<script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+	<script src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
+</head>
+
+<body>
+
+<ng-view></ng-view>
+
+<script src="DroneCafeApp.js"></script>
+<script src="UserController/UserCtrl.js"></script>
+<script src="Services/UserService.js"></script>
+<script src="Services/KitchenService.js"></script>
+<script src="KitchenController/KitchenCtrl.js"></script>
+
+
+</body>
+
+</html>

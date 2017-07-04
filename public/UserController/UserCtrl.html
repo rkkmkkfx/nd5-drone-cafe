@@ -1,0 +1,139 @@
+<div class="page" data-ng-class="{'page--main': !userLogin}">
+	
+	<div class="container center" data-ng-if="!userLogin">
+		<!--/* Модальное окно авторизации - BEGIN */-->
+		<div id="userLogin" class="modal">
+			<div class="modal-content">
+				<h4>Войти</h4>
+				<div class="row">
+					<form name="myAccountForm" class="col s12" novalidate>
+						<div class="form-group col s12 m6">
+							<label>Имя</label>
+							<input class="form-control" data-ng-model="account.name" type="text" placeholder="Имя" required name="accountName">
+							
+							<div role="alert" ng-messages="myAccountForm.accountName.$error" ng-if="myAccountForm.accountName.$dirty">
+								<div ng-message="required" class="alert alert-danger">Поле "Имя" обязательно для заполнения</div>
+							</div>
+						</div>
+						
+						<div class="form-group col s12 m6">
+							<label>Электронная почта</label>
+							<input class="form-control" data-ng-model="account.email" type="text" placeholder="Email" data-ng-pattern="/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/" required name="accountEmail">
+							
+							<div ng-messages="myAccountForm.accountEmail.$error" ng-if="myAccountForm.accountEmail.$dirty">
+								<div ng-message="pattern" class="alert alert-danger">Не верный e-mail</div>
+								<div ng-message="required" class="alert alert-danger" role="alert">Поле "E-mail" обязательно для заполнения</div>
+							</div>
+						</div>
+						
+						<button type="submit" class="waves-effect waves-light btn login-btn" ng-click="accountData(account)" data-ng-disabled="myAccountForm.$invalid">Вход</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--/* Модальное окно авторизации - END */-->
+		<script>
+			$('#userLogin').modal({
+					dismissible: false,
+					inDuration: 300,
+					outDuration: 200,
+					startingTop: '4%',
+					endingTop: '10%',
+				},
+
+			);
+			$(document).ready(() => {
+				$('#userLogin').modal('open');
+			});
+
+			$('.login-btn').click(function () {
+				$('#userLogin').modal('close');
+			});
+		</script>
+		
+		
+	</div>
+	
+	
+	<div data-ng-if="userLogin">
+		<!--/* Боковое меню - BEGIN */-->
+		<ul id="slide-out" class="side-nav red darken-4 white-text">
+			<li><div class="userView">
+				<div class="row">
+					<div class="col s3">
+						<i class="medium material-icons">perm_identity</i>
+					</div>
+					<div class="col s9">
+						<span class="white-text name">{{ user.name}}</span>
+					</div>
+				</div>
+				<a href="mailto:{{ user.email }}"><span>{{ user.email }}</span></a>
+				<blockquote>
+					<span>На счету: {{ user.points }} Q</span>
+				</blockquote>
+			
+			</div></li>
+			<li><a ng-click="addAmount()">Пополнить счет</a></li>
+			<li><div class="divider"></div></li>
+			<li><a data-activates="slide-out">Меню</a></li>
+			
+			<li><div class="divider"></div></li>
+			<li><div class="row">
+				<h6>Список заказанных блюд</h6>
+				<p></p>
+				<div class="list-group">
+					<div class="list-group-item" data-ng-repeat="singleMeal in userOrder">
+						<label class="list-group-item-heading">{{singleMeal.mealName}}</label>
+						<span align="right">{{singleMeal.status}}</span>
+						<button class="waves-effect waves-light btn" ng-click="deleteMealFromOrder(singleMeal, $index)" data-ng-if="singleMeal.status == 'Заказано'">Удалить</button>
+						<button class="waves-effect waves-light btn" ng-click="orderCancellation(singleMeal, $index)" data-ng-if="singleMeal.status == 'Возникли сложности'">Отменить заказ</button>
+						<button class="waves-effect waves-light btn" ng-click="addMealToOrderWithSale(singleMeal, $index)" data-ng-if="singleMeal.status == 'Возникли сложности'">Повторить со скидкой 5%</button>
+						<p></p>
+					</div>
+				</div>
+			</div></li>
+		</ul>
+		
+		<a data-activates="slide-out" class="mainMenu menu-btn button-collapse btn-floating btn-large waves-effect waves-light red right">
+			<i class="material-icons">menu</i>
+		</a>
+		<!--/* Боковое меню - BEGIN */-->
+		
+		<script>
+			$('.button-collapse').sideNav({
+					menuWidth: 300,
+					edge: 'left',
+					draggable: true
+				}
+			);
+		</script>
+	</div>
+	
+	<div class="grid row">
+		<div class="grid-sizer"></div>
+		<div class="grid-item col s12 m4 l3"  ng-repeat="meal in meals">
+			<div class="card hoverable">
+				<div class="card-image">
+					<img src="{{ meal.image }}">
+					<a class="btn-floating halfway-fab waves-effect waves-light red" ng-click="addMealToOrder(meal)"><i class="material-icons">add</i></a>
+				</div>
+				<div class="card-content">
+					<span class="card-title">{{ meal.title }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<script>
+		$(document).ready(() => {
+			const $grid = $('.grid').imagesLoaded( function() {
+				// init Masonry after all images have loaded
+				$grid.masonry({
+					itemSelector: '.grid-item',
+					columnWidth: '.grid-sizer',
+					percentPosition: true
+				});
+			});
+		});
+	</script>
+</div>
