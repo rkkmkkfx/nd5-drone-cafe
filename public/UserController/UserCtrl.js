@@ -72,7 +72,7 @@ angular
 		};
 
 		socket.on('order created', function(){
-			userService.getUserOrders($scope.user._id).then(function(data) {
+			userService.getUserOrders($scope.user).then(function(data) {
 				if(data.data.length !== undefined) {
 					$scope.userOrder = data.data;
 				};
@@ -97,7 +97,7 @@ angular
 		});
 
 		socket.on('order deleted', function(){
-			userService.getUserOrders($scope.user._id).then(function(data) {
+			userService.getUserOrders($scope.user).then(function(data) {
 				if(data.data.length !== undefined) {
 					$scope.userOrder = data.data;
 				};

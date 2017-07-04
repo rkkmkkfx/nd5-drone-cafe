@@ -39,13 +39,11 @@ angular
 				return $http.get('/api/meals')
 			},
 
-			getUserOrders: function(data) {
-				let ordersInfo = {
-					params: {
-						user: data
-					}
+			getUserOrders: function(user) {
+				const ordersQuery = {
+					params: user
 				};
-				return $http.get('/api/orders', ordersInfo);
+				return $http.get('/api/orders', ordersQuery);
 			},
 
 			createOrder: function(user, meal){

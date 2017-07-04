@@ -111,20 +111,13 @@ db.once('open', function() {
 		//CREATE
 		.post((req, res) => {
 			const newOrder = new config.orderModel({
-				user: {
-					id: req.body.user._id,
-					name: req.body.user.name
-				},
-				meal: {
-					id: req.body.meal._id,
-					title: req.body.meal.title,
-					image: req.body.meal.image
-				},
+				user : req.body.user,
+				meal : req.body.meal,
+				status : 'Заказано',
 				price  : req.body.meal.price
 			});
 			newOrder.save((err) => {
 				if (err) {
-					console.log(err);
 					res.send(err);
 				} else {
 					res.send('Заказ создан');
@@ -134,13 +127,19 @@ db.once('open', function() {
 		})
 		//READ
 		.get((req, res) => {
-			const query = JSON.parse(req.query.user);
-			console.log(query);
-			config.orderModel.find({user: {id: query.data._id}}, (err, orders) => {
-				if (err) res.send(err);
-				console.log(orders);
-				res.json(orders);
-			});
+			if (req.query.status) {
+				config.orderModel.find({status: req.query.status}, (err, orders) => {
+					if (err) res.send(err);
+					res.json(orders);
+				});
+			} else {
+				const query = JSON.parse(req.query.data);
+				console.log(query);
+				config.orderModel.find({'user._id': query._id}, (err, orders) => {
+					if (err) res.send(err);
+					res.json(orders);
+				});
+			}
 		});
 
 	APIv0.route('/orders/:orderId')

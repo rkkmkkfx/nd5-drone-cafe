@@ -27,12 +27,12 @@ const   mongoose    = require('mongoose'),
 	userModel   = mongoose.model('user', userSchema),
 	orderSchema = new Schema({
 		meal: {
-			id: mongoose.Schema.ObjectId,
+			_id: mongoose.Schema.ObjectId,
 			title: String,
 			image: String
 		},
 		user: {
-			id: mongoose.Schema.ObjectId,
+			_id: mongoose.Schema.ObjectId,
 			name: String
 		},
 		status: {
