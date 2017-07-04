@@ -145,7 +145,6 @@ db.once('open', function() {
 	APIv0.route('/orders/:orderId')
 		//UPDATE
 		.put((req, res) => {
-			console.log(req.params);
 			config.orderModel.findById(req.params.orderId, (err, order) => {
 				if (err) {
 					res.send(err);
@@ -174,7 +173,7 @@ db.once('open', function() {
 												} else {
 													io.emit('status changed', order);
 													setTimeout(() => {
-														config.orderModel.remove({_id: req.params.order_id}, (function (err) {
+														config.orderModel.remove({_id: req.params.orderId}, (function (err) {
 															if (err) {
 																res.send(err);
 															} else {
@@ -196,7 +195,7 @@ db.once('open', function() {
 												} else {
 													io.emit('status changed', order);
 													setTimeout(() => {
-														config.orderModel.remove({_id: req.params.order_id}, (function (err) {
+														config.orderModel.remove({_id: req.params.orderId}, (function (err) {
 															if (err) {
 																res.send(err);
 															} else {

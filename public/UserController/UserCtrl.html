@@ -82,27 +82,22 @@
 				<h6>Список заказанных блюд</h6>
 				<div class="orders">
 					<div class="col s12" data-ng-repeat="order in userOrder">
-						<div class="card horizontal">
+						<div class="card">
 							<div class="card-image">
 								<img src="{{ order.meal.image }}">
+								<span class="card-title">{{ order.meal.title }}</span>
+								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="deleteMealFromOrder(order, $index)" data-ng-if="order.status == 'Заказано'"><i class="material-icons">stop</i></a>
+								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="orderCancellation(order, $index)" data-ng-if="order.status == 'Возникли сложности'"><i class="material-icons">not_interested</i></a>
+								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="addMealToOrderWithSale(order, $index)" data-ng-if="order.status == 'Возникли сложности'"><i class="material-icons">repeat</i></a>
+								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="addMealToOrderWithSale(order, $index)" data-ng-if="order.status == 'Возникли сложности'"><i class="material-icons">repeat</i></a>
 							</div>
-							<div class="card-stacked">
-								<div class="card-content">
-									<h6>{{ order.meal.title }}</h6>
-								</div>
-								<div class="row"></div>
-								<div class="card-action">
-									<span class="left small">{{order.status}}</span>
-									<a class="btn-floating waves-effect waves-light right" ng-click="deleteMealFromOrder(order, $index)" data-ng-if="order.status == 'Заказано'"><i class="material-icons">delete</i></a>
-									<button class="waves-effect waves-light btn" ng-click="orderCancellation(order, $index)" data-ng-if="order.status == 'Возникли сложности'">Отменить заказ</button>
-									<button class="waves-effect waves-light btn" ng-click="addMealToOrderWithSale(order, $index)" data-ng-if="order.status == 'Возникли сложности'">Повторить со скидкой 5%</button>
-								</div>
+							<div class="card-content">
+								<span>{{order.status}}</span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div></li>
-			{{ userService.getMenu() }}
 		</ul>
 		
 		<a data-activates="slide-out" class="mainMenu menu-btn button-collapse btn-floating btn-large waves-effect waves-light red right">
@@ -134,7 +129,7 @@
 				<div class="card-reveal">
 					<span class="card-title grey-text text-darken-4">Ингридиенты<i class="material-icons right">close</i></span>
 					<ul class="collection">
-						<li class="collection-item" ng-repeat="ingridient in meal.ingredients">{{ ingridient }}</li>
+						<li class="collection-item" ng-repeat="ingridient in meal.ingredients track by $index">{{ ingridient }}</li>
 					</ul>
 				</div>
 			</div>
