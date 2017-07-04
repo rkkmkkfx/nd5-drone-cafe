@@ -80,15 +80,25 @@
 			<li><div class="divider"></div></li>
 			<li><div class="row">
 				<h6>Список заказанных блюд</h6>
-				<p></p>
-				<div class="list-group">
-					<div class="list-group-item" data-ng-repeat="order in userOrder">
-						<label class="list-group-item-heading">{{order.meal.title}}</label>
-						<span align="right">{{order.status}}</span>
-						<button class="waves-effect waves-light btn" ng-click="deleteMealFromOrder(order, $index)" data-ng-if="order.status == 'Заказано'">Удалить</button>
-						<button class="waves-effect waves-light btn" ng-click="orderCancellation(order, $index)" data-ng-if="order.status == 'Возникли сложности'">Отменить заказ</button>
-						<button class="waves-effect waves-light btn" ng-click="addMealToOrderWithSale(order, $index)" data-ng-if="order.status == 'Возникли сложности'">Повторить со скидкой 5%</button>
-						<p></p>
+				<div class="orders">
+					<div class="col s12" data-ng-repeat="order in userOrder">
+						<div class="card horizontal">
+							<div class="card-image">
+								<img src="{{ order.meal.image }}">
+							</div>
+							<div class="card-stacked">
+								<div class="card-content">
+									<h6>{{ order.meal.title }}</h6>
+								</div>
+								<div class="row"></div>
+								<div class="card-action">
+									<span class="left small">{{order.status}}</span>
+									<a class="btn-floating waves-effect waves-light right" ng-click="deleteMealFromOrder(order, $index)" data-ng-if="order.status == 'Заказано'"><i class="material-icons">delete</i></a>
+									<button class="waves-effect waves-light btn" ng-click="orderCancellation(order, $index)" data-ng-if="order.status == 'Возникли сложности'">Отменить заказ</button>
+									<button class="waves-effect waves-light btn" ng-click="addMealToOrderWithSale(order, $index)" data-ng-if="order.status == 'Возникли сложности'">Повторить со скидкой 5%</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div></li>
@@ -114,12 +124,18 @@
 		<div class="grid-sizer"></div>
 		<div class="grid-item col s12 m4 l3"  ng-repeat="meal in meals">
 			<div class="card hoverable">
-				<div class="card-image">
-					<img src="{{ meal.image }}">
-					<a class="btn-floating halfway-fab waves-effect waves-light red" ng-click="addMealToOrder(meal)"><i class="material-icons">add</i></a>
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="{{ meal.image }}">
 				</div>
 				<div class="card-content">
-					<span class="card-title">{{ meal.title }}</span>
+					<span class="card-title activator grey-text text-darken-4">{{ meal.title }}<i class="material-icons right">more_vert</i></span>
+					<p><a class="waves-effect waves-light btn" ng-click="addMealToOrder(meal)">Заказать</a></p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Ингридиенты<i class="material-icons right">close</i></span>
+					<ul class="collection">
+						<li class="collection-item" ng-repeat="ingridient in meal.ingredients">{{ ingridient }}</li>
+					</ul>
 				</div>
 			</div>
 		</div>

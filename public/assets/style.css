@@ -7,6 +7,7 @@
     position: fixed !important;
     right: 15px;
     bottom: 15px;
+    z-index: 3999;
 }
 
 .side-nav a,
@@ -21,4 +22,8 @@
 
 cart-component .collection {
     border: none;
+}
+
+.orders {
+    color: #333;
 }
