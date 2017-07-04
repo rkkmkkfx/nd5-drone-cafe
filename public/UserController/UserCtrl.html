@@ -1,6 +1,6 @@
-<div class="page" data-ng-class="{'page--main': !userLogin}">
+<div class="page">
 	
-	<div class="container center" data-ng-if="!userLogin">
+	<div class="container" data-ng-if="!auth">
 		<!--/* Модальное окно авторизации - BEGIN */-->
 		<div id="userLogin" class="modal">
 			<div class="modal-content">
@@ -55,7 +55,7 @@
 	</div>
 	
 	
-	<div data-ng-if="userLogin">
+	<div data-ng-if="auth">
 		<!--/* Боковое меню - BEGIN */-->
 		<ul id="slide-out" class="side-nav red darken-4 white-text">
 			<li><div class="userView">
@@ -92,6 +92,7 @@
 					</div>
 				</div>
 			</div></li>
+			{{ userService.getMenu() }}
 		</ul>
 		
 		<a data-activates="slide-out" class="mainMenu menu-btn button-collapse btn-floating btn-large waves-effect waves-light red right">
@@ -123,7 +124,7 @@
 			</div>
 		</div>
 	</div>
-		
+	
 	<script>
 		$(document).ready(() => {
 			const $grid = $('.grid').imagesLoaded( function() {

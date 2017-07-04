@@ -69,14 +69,11 @@ db.once('open', function() {
 		})
 		//READ
 		.get((req, res) => {
-			const userData = {
-				name : req.query.name,
-				email : req.query.email
-			};
 			config.userModel.findOne({email: req.query.email}, (err, user) => {
 				if (err) {
 					res.send(err);
 				} else {
+					console.log(user);
 					res.json(user);
 				};
 			});
@@ -89,7 +86,7 @@ db.once('open', function() {
 				if (err) {
 					res.send(err);
 				} else {
-					user.points += 100;
+					user.points = req.body.newBalance;
 					user.save();
 					res.json(user);
 
@@ -101,7 +98,7 @@ db.once('open', function() {
 	APIv0.route('/meals')
 		//READ
 		.get((req, res) => {
-			config.mealModel.find((err, meals) => {
+			config.mealModel.find({}, (err, meals) => {
 				if (err){
 					res.send(err);
 				} else {
@@ -114,7 +111,7 @@ db.once('open', function() {
 	APIv0.route('/orders')
 		//CREATE
 		.post((req, res) => {
-			const newOrder = new model.Order({
+			const newOrder = new config.orderModel({
 				userId : req.body.user,
 				mealId : req.body.meal,
 				status : 'Заказано',
@@ -133,7 +130,6 @@ db.once('open', function() {
 		.get((req, res) => {
 			config.orderModel.find({user: req.body.user}, (err, orders) => {
 				if (err) res.send(err);
-				console.log(orders);
 				res.json(orders);
 			});
 		});
@@ -230,13 +226,13 @@ server.listen(config.server.port, function () {
 });
 
 io.on('connection', function (socket) {
-	console.log('Подключение пользователя');
+	console.log('User connected');
 
 	socket.on('status changed', (order) => {
 		io.emit('status changed', order);
 	});
 
 	socket.on('disconnect', function () {
-		console.log('Отключение пользователя');
+		console.log('User disconnected');
 	});
 });

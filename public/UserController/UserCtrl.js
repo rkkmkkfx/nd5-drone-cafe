@@ -10,51 +10,55 @@ angular
 
 		$scope.accountData = function(user) {
 			$scope.auth = true;
-
 			$scope.user = user;
-			userService.getUserInfo($scope.user).then(function(data) {
-				if(data.data.length == 0) {
-					userService.createNewUser($scope.user).then(function(data) {
-						$scope.user = data.data;
-					});
-				} else {
-					$scope.user = data.data;
-					userService.getUserOrders($scope.user._id).then(function(data) {
-						if(data.data.length !== undefined) {
-							$scope.userOrder = data.data;
-						};
-					});
-				}
+			userService.getUserInfo($scope.user)
+				.then(activeUser => {
+						if(activeUser.data === null) {
+							userService.createNewUser($scope.user)
+								.then(newUser => $scope.user = newUser.data);
+						} else {
+							$scope.user = activeUser.data;
+							userService.getUserOrders(activeUser.data._id)
+								.then(orders => $scope.userOrder = orders.data);
+						}
+					}
+				);
+			userService.getMenu().then(data => {
+				console.log(data);
+				$scope.meals = data.data;
 			});
 		};
-		$scope.meals = userService.getMenu().then(meals => {return meals.data});
 		$scope.addAmount = function(){
 			$scope.user.points += 100;
-			userService.updateUserBalance($scope.user._id, $scope.user.points)
+			userService.updatePoints($scope.user._id, $scope.user.points)
 		};
-		$scope.addMealToOrder = function(singleMealId, singleMealTitle, singleMealPrice){
-			$scope.user.points = $scope.user.points - singleMealPrice;
 
-			userService.updateUserBalance($scope.user._id, $scope.user.balance);
+		$scope.addMealToOrder = function(meal){
+			$scope.user.points = $scope.user.points - meal.price;
 
-			userService.createOrder($scope.user._id, singleMealId);
+			userService.updatePoints($scope.user._id, $scope.user.points);
+
+			userService.createOrder($scope.user, meal);
 		};
+
 		$scope.addMealToOrderWithSale = function(order, orderIndex){
 			$scope.user.points = $scope.user.points - (order.price/100*5);
 			order.price = order.price/100*5;
-			userService.updateUserBalance($scope.user._id, $scope.user.points);
+			userService.updatePoints($scope.user._id, $scope.user.points);
 
 			order.status = 'Заказано';
 			socket.emit('order status changed', order);
 			userService.updateOrderStatus(order._id, order.status, order.price);
 		};
+
 		$scope.deleteMealFromOrder = function(order, orderIndex){
 			$scope.user.points = $scope.user.points + order.price;
-			userService.updateUserBalance($scope.user._id, $scope.user.points);
+			userService.updatePoints($scope.user._id, $scope.user.points);
 
 			userService.deleteOrder(order._id);
 			$scope.userOrder.splice(orderIndex, 1);
 		};
+
 		$scope.orderCancellation = function(order, orderIndex){
 			userService.deleteOrder(order._id);
 			$scope.userOrder.splice(orderIndex, 1);
@@ -69,19 +73,19 @@ angular
 		});
 
 		socket.on('status changed', function(order){
-			if ($scope.userOrder.length != 0) {
+			if ($scope.userOrder.length !== 0) {
 				for (let i=0; i<$scope.userOrder.length; i++){
-					if($scope.userOrder[i]._id == order._id){
+					if($scope.userOrder[i]._id === order._id){
 						$scope.userOrder[i].status = order.status;
 						$scope.userOrder[i].price = order.price;
-						if ($scope.userOrder[i].status == 'Возникли сложности') {
+						if ($scope.userOrder[i].status === 'Возникли сложности') {
 							$scope.user.balance = $scope.user.balance + $scope.userOrder[i].price
-							userService.updateUserBalance($scope.user._id, $scope.user.balance);
+							userService.updatePoints($scope.user._id, $scope.user.balance);
 						}
 						$scope.$apply();
 						break;
 					}
-				};
+				}
 			}
 		});
 

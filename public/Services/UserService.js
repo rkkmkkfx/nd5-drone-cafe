@@ -3,17 +3,16 @@ angular
 	.factory('userService', function($http) {
 
 		return {
-			getUserInfo: function(user) {
+			getUserInfo: user => {
 				let userInfo = {
 					params: {
-						name: user.name,
 						email: user.email
 					}
 				};
 				return $http.get('/api/users', userInfo);
 			},
 
-			createNewUser: function(user) {
+			createNewUser: user => {
 				let userInfo = {
 					name: user.name,
 					email: user.email
@@ -25,9 +24,9 @@ angular
 				});
 			},
 
-			updateUserBalance: function(userId, newBalance) {
+			updatePoints: function(userId, newBalance) {
 				let userInfo = {
-					balance: newBalance
+					points: newBalance
 				};
 				return $http({
 					method: 'PUT',
@@ -36,8 +35,8 @@ angular
 				});
 			},
 
-			getMenu: function() {
-				return $http.get('/api/meals');
+			getMenu: () => {
+				return $http.get('/api/meals')
 			},
 
 			getUserOrders: function(user) {
