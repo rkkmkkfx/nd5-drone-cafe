@@ -18,7 +18,7 @@ angular
 								.then(newUser => $scope.user = newUser.data);
 						} else {
 							$scope.user = activeUser.data;
-							userService.getUserOrders(activeUser.data._id)
+							userService.getUserOrders(activeUser)
 								.then(orders => $scope.userOrder = orders.data);
 						}
 					}

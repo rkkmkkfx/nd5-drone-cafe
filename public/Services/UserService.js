@@ -39,15 +39,15 @@ angular
 				return $http.get('/api/meals')
 			},
 
-			getUserOrders: function(user) {
+			getUserOrders: function(data) {
 				let ordersInfo = {
 					params: {
-						user: user
+						user: data
 					}
 				};
 				return $http.get('/api/orders', ordersInfo);
 			},
-			//добавление блюда к заказу
+
 			createOrder: function(user, meal){
 				let orderInfo = {
 					user: user,
@@ -60,14 +60,14 @@ angular
 					data: orderInfo
 				});
 			},
-			//удаление блюда из заказа
+
 			deleteOrder: function(orderid){
 				return $http({
 					method: 'DELETE',
 					url: '/api/orders/' + orderid
 				});
 			},
-			//обновление статуса заказа
+
 			updateOrderStatus: function(orderid, newStatus, orderPrice){
 				let orderInfo = {
 					status: newStatus,

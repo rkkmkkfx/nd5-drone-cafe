@@ -134,7 +134,9 @@ db.once('open', function() {
 		})
 		//READ
 		.get((req, res) => {
-			config.orderModel.find({user: {id: req.body.user._id}}, (err, orders) => {
+			const query = JSON.parse(req.query.user);
+			console.log(query);
+			config.orderModel.find({user: {id: query.data._id}}, (err, orders) => {
 				if (err) res.send(err);
 				console.log(orders);
 				res.json(orders);
