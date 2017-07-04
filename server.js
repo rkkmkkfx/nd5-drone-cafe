@@ -73,7 +73,6 @@ db.once('open', function() {
 				if (err) {
 					res.send(err);
 				} else {
-					console.log(user);
 					res.json(user);
 				};
 			});

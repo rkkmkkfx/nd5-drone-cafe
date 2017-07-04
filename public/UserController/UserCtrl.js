@@ -23,9 +23,16 @@ angular
 						}
 					}
 				);
-			userService.getMenu().then(data => {
-				console.log(data);
-				$scope.meals = data.data;
+			userService.getMenu().then(menu => {
+				$scope.meals = menu.data;
+				//init grid
+				let grid = $('.grid').imagesLoaded( function() {
+					grid.masonry({
+						itemSelector: '.grid-item',
+						columnWidth: '.grid-sizer',
+						percentPosition: true
+					});
+				});
 			});
 		};
 		$scope.addAmount = function(){

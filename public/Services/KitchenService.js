@@ -3,7 +3,7 @@ angular
 	.factory('kitchenService', function($http) {
 
 		return {
-			getMeals: function(mealStatus) {
+			getOrders: function(mealStatus) {
 				let config = {
 					params: {
 						status: mealStatus
@@ -11,7 +11,6 @@ angular
 				};
 				return $http.get('/api/orders', config);
 			},
-			//обновление статуса заказа
 			updateOrderStatus: function(orderId, newStatus, orderPrice){
 				let orderData = {
 					status: newStatus,

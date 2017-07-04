@@ -1,0 +1,24 @@
+.grid-sizer,
+.grid-item {
+    width: 25%;
+}
+
+.menu-btn {
+    position: fixed !important;
+    right: 15px;
+    bottom: 15px;
+}
+
+.side-nav a,
+.side-nav li>a {
+    color: #fff;
+    cursor: pointer;
+}
+
+.side-nav span.badge {
+    margin-top: 0;
+}
+
+cart-component .collection {
+    border: none;
+}
