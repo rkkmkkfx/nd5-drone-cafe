@@ -41,6 +41,11 @@ angular
 		};
 
 		$scope.addMealToOrder = function(meal){
+			setTimeout(() => {
+				$('.mainMenu').removeClass('pulse');
+			}, 5000);
+			$('.mainMenu').addClass('pulse');
+
 			$scope.user.points = $scope.user.points - meal.price;
 
 			userService.updatePoints($scope.user._id, $scope.user.points);

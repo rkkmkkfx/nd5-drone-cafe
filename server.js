@@ -15,12 +15,10 @@ app.use(express.static(__dirname + '/public'));
 const drone = require('netology-fake-drone-api');
 
 const mongoose = require('mongoose');
-
 mongoose.connect(config.db.url);
-
 mongoose.Promise = global.Promise;
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Ошибка подключения:'));
 db.once('open', function() {
@@ -170,6 +168,7 @@ db.once('open', function() {
 											order.save((err) => {
 												if (err) {
 													console.log(err);
+													res.send(err);
 												} else {
 													io.emit('status changed', order);
 													setTimeout(() => {
@@ -182,7 +181,7 @@ db.once('open', function() {
 															}
 															;
 														}))
-													}, 120000);
+													}, 1000000);
 												}
 											});
 
@@ -192,6 +191,7 @@ db.once('open', function() {
 											order.save((err) => {
 												if (err) {
 													console.log(err);
+													res.send(err);
 												} else {
 													io.emit('status changed', order);
 													setTimeout(() => {
@@ -204,7 +204,7 @@ db.once('open', function() {
 															}
 															;
 														}))
-													}, 120000);
+													}, 1000000);
 												}
 											});
 										})

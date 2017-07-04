@@ -87,9 +87,15 @@
 								<img src="{{ order.meal.image }}">
 								<span class="card-title">{{ order.meal.title }}</span>
 								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="deleteMealFromOrder(order, $index)" data-ng-if="order.status == 'Заказано'"><i class="material-icons">stop</i></a>
-								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="orderCancellation(order, $index)" data-ng-if="order.status == 'Возникли сложности'"><i class="material-icons">not_interested</i></a>
-								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="addMealToOrderWithSale(order, $index)" data-ng-if="order.status == 'Возникли сложности'"><i class="material-icons">repeat</i></a>
-								<a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="addMealToOrderWithSale(order, $index)" data-ng-if="order.status == 'Возникли сложности'"><i class="material-icons">repeat</i></a>
+								<div class="fixed-action-btn horizontal" data-ng-if="order.status == 'Возникли сложности'">
+									<a class="btn-floating red">
+										<i class="large material-icons">mode_edit</i>
+									</a>
+									<ul>
+										<li><a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="orderCancellation(order, $index)"><i class="material-icons">not_interested</i></a></li>
+										<li><a class="btn-floating halfway-fab waves-effect waves-light right" ng-click="addMealToOrderWithSale(order, $index)"><i class="material-icons">repeat</i></a></li>
+									</ul>
+								</div>
 							</div>
 							<div class="card-content">
 								<span>{{order.status}}</span>
@@ -124,7 +130,7 @@
 				</div>
 				<div class="card-content">
 					<span class="card-title activator grey-text text-darken-4">{{ meal.title }}<i class="material-icons right">more_vert</i></span>
-					<p><a class="waves-effect waves-light btn" ng-click="addMealToOrder(meal)">Заказать</a></p>
+					<p><a class="waves-effect waves-light btn" ng-click="addMealToOrder(meal)" data-ng-disabled="user.points <= meal.price">Заказать</a></p>
 				</div>
 				<div class="card-reveal">
 					<span class="card-title grey-text text-darken-4">Ингридиенты<i class="material-icons right">close</i></span>
