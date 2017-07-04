@@ -13,6 +13,7 @@ angular
 			$scope.user = user;
 			userService.getUserInfo($scope.user)
 				.then(activeUser => {
+						console.log(activeUser);
 						if(activeUser.data === null) {
 							userService.createNewUser($scope.user)
 								.then(newUser => $scope.user = newUser.data);
@@ -67,12 +68,12 @@ angular
 			$scope.user.points = $scope.user.points + order.price;
 			userService.updatePoints($scope.user._id, $scope.user.points);
 
-			userService.deleteOrder(order._id);
+			userService.deleteOrder(order);
 			$scope.userOrder.splice(orderIndex, 1);
 		};
 
-		$scope.orderCancellation = function(order, orderIndex){
-			userService.deleteOrder(order._id);
+		$scope.cancelOrder = function(order, orderIndex){
+			userService.deleteOrder(order);
 			$scope.userOrder.splice(orderIndex, 1);
 		};
 

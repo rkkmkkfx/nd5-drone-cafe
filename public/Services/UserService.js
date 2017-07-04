@@ -61,10 +61,10 @@ angular
 				});
 			},
 
-			deleteOrder: function(orderid){
+			deleteOrder: function(order){
 				return $http({
 					method: 'DELETE',
-					url: '/api/orders/' + orderid
+					url: '/api/orders/' + order._id
 				});
 			},
 

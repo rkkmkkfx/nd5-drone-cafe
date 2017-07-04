@@ -7,7 +7,6 @@ angular
 		let socket = io();
 
 		kitchenService.getOrders('Заказано').then(function(res) {
-			console.log(res.data);
 			$scope.pending = res.data;
 		});
 

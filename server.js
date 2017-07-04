@@ -146,7 +146,7 @@ db.once('open', function() {
 			config.orderModel.findById(req.params.orderId, (err, order) => {
 				if (err) {
 					res.send(err);
-				} else {
+				} else if (order !== null) {
 					order.status = req.body.status;
 					order.price = req.body.price;
 					let amount = order.price
@@ -171,17 +171,6 @@ db.once('open', function() {
 													res.send(err);
 												} else {
 													io.emit('status changed', order);
-													setTimeout(() => {
-														config.orderModel.remove({_id: req.params.orderId}, (function (err) {
-															if (err) {
-																res.send(err);
-															} else {
-																io.emit('order deleted');
-																res.send('Выполненный заказ удален')
-															}
-															;
-														}))
-													}, 1000000);
 												}
 											});
 
@@ -194,17 +183,6 @@ db.once('open', function() {
 													res.send(err);
 												} else {
 													io.emit('status changed', order);
-													setTimeout(() => {
-														config.orderModel.remove({_id: req.params.orderId}, (function (err) {
-															if (err) {
-																res.send(err);
-															} else {
-																io.emit('order deleted');
-																res.send('Не выполненный заказ удален')
-															}
-															;
-														}))
-													}, 1000000);
 												}
 											});
 										})
@@ -217,7 +195,7 @@ db.once('open', function() {
 		})
 		//DELETE
 		.delete((req, res) => {
-			config.orderModel.remove({_id: req.params.orderId}, (err) => {
+			config.orderModel.findOneAndRemove({_id: req.params.orderId}, (err) => {
 				if (err) {
 					res.send(err);
 				} else {
