@@ -13,17 +13,17 @@ angular
 			$scope.user = user;
 			userService.getUserInfo($scope.user)
 				.then(activeUser => {
-						console.log(activeUser);
 						if(activeUser.data === null) {
 							userService.createNewUser($scope.user)
 								.then(newUser => {
 									$scope.user = newUser.data;
-									Materialize.toast('New user created!', 4000);
+									Materialize.toast(`Новый пользователь "${newUser.data.name}" создан!`, 4000);
 								});
 						} else {
 							$scope.user = activeUser.data;
 							userService.getUserOrders(activeUser)
 								.then(orders => $scope.userOrder = orders.data);
+							Materialize.toast(`С возвращением, ${activeUser.data.name}!`, 4000);
 						}
 					}
 				);
@@ -58,7 +58,7 @@ angular
 				$('.tooltipped').tooltip({delay: 50});
 			});
 
-			$scope.user.points = $scope.user.points - meal.price;
+			$scope.user.points -= meal.price;
 
 			userService.updatePoints($scope.user._id, $scope.user.points);
 
@@ -66,16 +66,17 @@ angular
 		};
 
 		$scope.addMealToOrderWithSale = function(order, orderIndex){
-			$scope.user.points = $scope.user.points - (order.price/100*5);
-			order.price = order.price/100*5;
+			$scope.user.points -= order.price - (order.price/100*5);
+			order.price -= order.price/100*5;
 			userService.updatePoints($scope.user._id, $scope.user.points);
 
 			order.status = 'Заказано';
 			socket.emit('order status changed', order);
+			Materialize.toast(`Повторяем заказ со скидкой, новая цена - ${order.price}`, 4000);
 			userService.updateOrderStatus(order._id, order.status, order.price);
 		};
 
-		$scope.deleteMealFromOrder = function(order, orderIndex){
+		$scope.cancelOrder = function(order, orderIndex){
 			$scope.user.points = $scope.user.points + order.price;
 			userService.updatePoints($scope.user._id, $scope.user.points);
 
@@ -83,7 +84,7 @@ angular
 			$scope.userOrder.splice(orderIndex, 1);
 		};
 
-		$scope.cancelOrder = function(order, orderIndex){
+		$scope.deleteOrder = function(order, orderIndex){
 			userService.deleteOrder(order);
 			$scope.userOrder.splice(orderIndex, 1);
 		};
@@ -97,14 +98,15 @@ angular
 		});
 
 		socket.on('status changed', function(order){
+			Materialize.toast(`Статус заказа изменен на "${order.status}"`, 4000);
 			if ($scope.userOrder.length !== 0) {
-				for (let i=0; i<$scope.userOrder.length; i++){
-					if($scope.userOrder[i]._id === order._id){
-						$scope.userOrder[i].status = order.status;
-						$scope.userOrder[i].price = order.price;
-						if ($scope.userOrder[i].status === 'Возникли сложности') {
-							$scope.user.balance = $scope.user.balance + $scope.userOrder[i].price
-							userService.updatePoints($scope.user._id, $scope.user.balance);
+				for (let item of $scope.userOrder){
+					if(item._id === order._id){
+						item.status = order.status;
+						item.price = order.price;
+						if (item.status === 'Возникли сложности') {
+							$scope.user.points = $scope.user.points + item.price
+							userService.updatePoints($scope.user._id, $scope.user.points);
 						}
 						$scope.$apply();
 						break;

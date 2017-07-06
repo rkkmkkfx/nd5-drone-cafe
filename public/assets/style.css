@@ -3,7 +3,7 @@
     width: 25%;
 }
 
-.menu-btn {
+.mainMenu {
     position: fixed !important;
     right: 15px;
     bottom: 15px;
@@ -23,6 +23,17 @@
 .orders {
     color: #333;
 }
+.orders .fixed-action-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.side-nav .orders .fixed-action-btn li>a>i {
+    margin: 0;
+    width: 100%;
+}
+
 .tooltipped[disabled],
 .tooltipped[disabled]:hover {
     pointer-events: all;

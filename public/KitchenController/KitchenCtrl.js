@@ -34,9 +34,9 @@ angular
 		};
 
 		socket.on('order created', function(){
-			kitchenService.getOrders('Заказано').then(function(data) {
-				if(data.data.length !== undefined) {
-					$scope.pending = data.data;
+			kitchenService.getOrders('Заказано').then(function(orders) {
+				if(orders.data.length !== undefined) {
+					$scope.pending = orders.data;
 				};
 			});
 		});

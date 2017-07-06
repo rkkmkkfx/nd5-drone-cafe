@@ -9,7 +9,7 @@ angular
 						email: user.email
 					}
 				};
-				return $http.get('/api/users', userInfo);
+				return $http.get('/api/v0/users', userInfo);
 			},
 
 			createNewUser: user => {
@@ -19,24 +19,24 @@ angular
 				};
 				return $http({
 					method: 'POST',
-					url: '/api/users',
+					url: '/api/v0/users',
 					data: userInfo
 				});
 			},
 
-			updatePoints: function(userId, newBalance) {
+			updatePoints: function(userId, pointsLeft) {
 				let userInfo = {
-					points: newBalance
+					points: pointsLeft
 				};
 				return $http({
 					method: 'PUT',
-					url: '/api/users/' + userId,
+					url: '/api/v0/users/' + userId,
 					data: userInfo
 				});
 			},
 
 			getMenu: () => {
-				return $http.get('/api/meals')
+				return $http.get('/api/v0/orders/meals')
 			},
 
 			getUserOrders: function(user) {
@@ -45,7 +45,7 @@ angular
 						user
 					}
 				};
-				return $http.get('/api/orders', ordersQuery);
+				return $http.get('/api/v0/orders', ordersQuery);
 			},
 
 			createOrder: function(user, meal){
@@ -56,7 +56,7 @@ angular
 
 				return $http({
 					method: 'POST',
-					url: '/api/orders',
+					url: '/api/v0/orders',
 					data: orderInfo
 				});
 			},
@@ -64,7 +64,7 @@ angular
 			deleteOrder: function(order){
 				return $http({
 					method: 'DELETE',
-					url: '/api/orders/' + order._id
+					url: '/api/v0/orders/' + order._id
 				});
 			},
 
@@ -75,7 +75,7 @@ angular
 				};
 				return $http({
 					method: 'PUT',
-					url: '/api/orders/' + orderid,
+					url: '/api/v0/orders/' + orderid,
 					data: orderInfo
 				});
 			}

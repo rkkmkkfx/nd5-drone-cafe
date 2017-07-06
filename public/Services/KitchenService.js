@@ -9,7 +9,7 @@ angular
 						status: mealStatus
 					}
 				};
-				return $http.get('/api/orders', config);
+				return $http.get('/api/v0/orders', config);
 			},
 			updateOrderStatus: function(orderId, newStatus, orderPrice){
 				let orderData = {
@@ -18,7 +18,7 @@ angular
 				};
 				return $http({
 					method: 'PUT',
-					url: '/api/orders/' + orderId,
+					url: '/api/v0/orders/' + orderId,
 					data: orderData
 				});
 			}
