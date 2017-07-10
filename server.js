@@ -1,7 +1,7 @@
 const config = require('./config')
 	express = require('express'),
 	bodyParser = require('body-parser'),
-	app = express(),
+	app = module.exports = express(),
 	server = require('http').createServer(app),
 	io = require('socket.io')(server);
 

@@ -2,10 +2,12 @@
 
 angular
 	.module('droneCafe')
-	.controller('userCtrl', function($scope, userService) {
+	.controller('userCtrl', function($scope, $cacheFactory, userService) {
 
 		let socket = io();
-
+		$scope.cache = $cacheFactory('user');
+		$scope.cacheUser = $scope.cache.get('data');
+		console.log($scope.cache.info());
 		$scope.auth = false;
 
 		$scope.accountData = function(user) {
@@ -16,13 +18,16 @@ angular
 						if(activeUser.data === null) {
 							userService.createNewUser($scope.user)
 								.then(newUser => {
-									$scope.user = newUser.data;
+									$scope.user = $scope.cache.put('data', newUser.data);
 									Materialize.toast(`Новый пользователь "${newUser.data.name}" создан!`, 4000);
 								});
 						} else {
-							$scope.user = activeUser.data;
+							$scope.user = $scope.cache.put('data', activeUser.data);
+							console.log($scope.cache.info());
 							userService.getUserOrders(activeUser)
-								.then(orders => $scope.userOrder = orders.data);
+								.then(orders => {
+									$scope.userOrder = orders.data;
+								});
 							Materialize.toast(`С возвращением, ${activeUser.data.name}!`, 4000);
 						}
 					}
@@ -65,7 +70,7 @@ angular
 			userService.createOrder($scope.user, meal);
 		};
 
-		$scope.addMealToOrderWithSale = function(order, orderIndex){
+		$scope.addMealToOrderWithSale = function(order){
 			$scope.user.points -= order.price - (order.price/100*5);
 			order.price -= order.price/100*5;
 			userService.updatePoints($scope.user._id, $scope.user.points);
@@ -98,6 +103,7 @@ angular
 		});
 
 		socket.on('status changed', function(order){
+			console.log(order);
 			Materialize.toast(`Статус заказа изменен на "${order.status}"`, 4000);
 			if ($scope.userOrder.length !== 0) {
 				for (let item of $scope.userOrder){
@@ -116,6 +122,7 @@ angular
 		});
 
 		socket.on('order deleted', function(){
+			Materialize.toast(`Заказ удален`, 4000);
 			userService.getUserOrders($scope.user).then(function(orders) {
 				if(orders.data.length !== undefined) {
 					$scope.userOrder = orders.data;

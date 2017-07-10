@@ -65,7 +65,7 @@ orderAPI.route('/:orderId')
 				order.status = req.body.status;
 				order.price = req.body.price;
 				let amount = order.price
-				order.save((err) => {
+				order.save((err, data) => {
 					if (err) {
 						res.send(err);
 					} else {
@@ -86,6 +86,17 @@ orderAPI.route('/:orderId')
 												res.send(err);
 											} else {
 												io.emit('status changed', order);
+												setTimeout(() => {
+													config.orderModel.remove({_id: order._id}, (function (err) {
+														if (err) {
+															res.send(err);
+														} else {
+															io.emit('order deleted');
+															res.send('заказ удален');
+														}
+														;
+													}))
+												}, 120000);
 											}
 										});
 
@@ -100,7 +111,12 @@ orderAPI.route('/:orderId')
 												io.emit('status changed', order);
 											}
 										});
-									})
+									});
+								break;
+							}
+							default: {
+								res.send(data);
+								break;
 							}
 						}
 					}
@@ -110,11 +126,12 @@ orderAPI.route('/:orderId')
 	})
 	//DELETE
 	.delete((req, res) => {
-		config.orderModel.findOneAndRemove({_id: req.params.orderId}, (err) => {
+		config.orderModel.findOneAndRemove({_id: req.params.orderId}, (err, data) => {
 			if (err) {
 				res.send(err);
 			} else {
-				res.send('Заказ удален')
+				console.log('delete');
+				res.send('Заказ удален');
 			};
 		});
 	});
