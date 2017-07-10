@@ -50,7 +50,7 @@ module.exports = {
 		port: 4321
 	},
 	db: {
-		url: 'mongodb://user:qwertyuiop@ds129462.mlab.com:29462/heroku_cz60j750',
+		url: 'mongodb://user:password@ds151702.mlab.com:51702/heroku_59x0zvdx',
 		data: require('./menu.json')
 	},
 	mealModel,
