@@ -1,4 +1,4 @@
-const config = require('./config')
+const config = require('./config'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
 	app = module.exports = express(),
@@ -33,7 +33,7 @@ db.once('open', function() {
 							image: item.image,
 							ingredients: item.ingredients,
 							price: item.price
-						}
+						};
 						config.mealModel.create(itemConfig, err => {
 							if (err) {
 								console.log(err);
@@ -50,7 +50,7 @@ db.once('open', function() {
 		throw err;
 	}
 	console.log('MongoDB Connected');
-})
+});
 
 app.use('/api', require('./api'));
 
