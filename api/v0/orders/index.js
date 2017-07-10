@@ -82,7 +82,6 @@ orderAPI.route('/:orderId')
 										order.price = amount;
 										order.save((err) => {
 											if (err) {
-												console.log(err);
 												res.send(err);
 											} else {
 												io.emit('status changed', order);
@@ -105,7 +104,6 @@ orderAPI.route('/:orderId')
 										order.status = 'Возникли сложности';
 										order.save((err) => {
 											if (err) {
-												console.log(err);
 												res.send(err);
 											} else {
 												io.emit('status changed', order);
@@ -130,7 +128,6 @@ orderAPI.route('/:orderId')
 			if (err) {
 				res.send(err);
 			} else {
-				console.log('delete');
 				res.send('Заказ удален');
 			};
 		});

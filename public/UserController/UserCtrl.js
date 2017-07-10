@@ -5,9 +5,6 @@ angular
 	.controller('userCtrl', function($scope, $cacheFactory, userService) {
 
 		let socket = io();
-		$scope.cache = $cacheFactory('user');
-		$scope.cacheUser = $scope.cache.get('data');
-		console.log($scope.cache.info());
 		$scope.auth = false;
 
 		$scope.accountData = function(user) {
@@ -18,12 +15,11 @@ angular
 						if(activeUser.data === null) {
 							userService.createNewUser($scope.user)
 								.then(newUser => {
-									$scope.user = $scope.cache.put('data', newUser.data);
+									$scope.user = newUser.data;
 									Materialize.toast(`Новый пользователь "${newUser.data.name}" создан!`, 4000);
 								});
 						} else {
-							$scope.user = $scope.cache.put('data', activeUser.data);
-							console.log($scope.cache.info());
+							$scope.user = activeUser.data;
 							userService.getUserOrders(activeUser)
 								.then(orders => {
 									$scope.userOrder = orders.data;
@@ -103,7 +99,6 @@ angular
 		});
 
 		socket.on('status changed', function(order){
-			console.log(order);
 			Materialize.toast(`Статус заказа изменен на "${order.status}"`, 4000);
 			if ($scope.userOrder.length !== 0) {
 				for (let item of $scope.userOrder){
