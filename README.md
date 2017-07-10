@@ -1,3 +1,6 @@
+ClientApp  - https://enigmatic-savannah-46650.herokuapp.com/#!/
+KitchenApp - https://enigmatic-savannah-46650.herokuapp.com/#!/kitchen
+
 # Drone cafe
 
 В рамках дипломного проект необходимо разработать систему автоматизации ресторана, в котором вместо официантов используются автономные дроны, а заказ размещается через простое веб-приложение.
