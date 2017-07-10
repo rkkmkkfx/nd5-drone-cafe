@@ -1,3 +1,6 @@
+* ClientApp  - https://nd-5-drone-cafe-app-baranov-s.herokuapp.com/#!/
+* KitchenApp - https://nd-5-drone-cafe-app-baranov-s.herokuapp.com/#!/kitchen
+
 # Drone cafe
 
 В рамках дипломного проект необходимо разработать систему автоматизации ресторана, в котором вместо официантов используются автономные дроны, а заказ размещается через простое веб-приложение.
