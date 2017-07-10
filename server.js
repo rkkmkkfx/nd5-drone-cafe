@@ -1,9 +1,9 @@
 const config = require('./config'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
-	app = module.exports = express(),
+	app = express(),
 	server = require('http').createServer(app),
-	io = require('socket.io')(server);
+	io = module.exports = require('socket.io')(server);
 
 
 app.use(bodyParser.json());

@@ -2,7 +2,8 @@ const config = require('./../../../config'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
 	orderAPI = express.Router(),
-	app = module.exports = orderAPI;
+	app = module.exports = orderAPI,
+	io = require('./../../../server');
 
 const drone = require('netology-fake-drone-api');
 
