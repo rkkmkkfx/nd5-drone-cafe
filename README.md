@@ -1,5 +1,5 @@
-* ClientApp  - https://enigmatic-savannah-46650.herokuapp.com/#!/
-* KitchenApp - https://enigmatic-savannah-46650.herokuapp.com/#!/kitchen
+* ClientApp  - https://nd-5-drone-cafe-app-baranov-s.herokuapp.com/#!/
+* KitchenApp - https://nd-5-drone-cafe-app-baranov-s.herokuapp.com/#!/kitchen
 
 # Drone cafe
 
