@@ -47,7 +47,7 @@ const   mongoose    = require('mongoose'),
 
 module.exports = {
 	server: {
-		port: 4321
+		port: Number(process.env.PORT || 5000)
 	},
 	db: {
 		url: 'mongodb://heroku_59x0zvdx:urk4ptmpq4lg6skjkkh9k6r18b@ds151702.mlab.com:51702/heroku_59x0zvdx',
