@@ -35,13 +35,15 @@ angular
 					$('.tooltipped').tooltip({delay: 50});
 				});
 				//init grid
-				let grid = $('.grid').imagesLoaded( function() {
-					grid.masonry({
-						itemSelector: '.grid-item',
-						columnWidth: '.grid-sizer',
-						percentPosition: true
+				setTimeout(() => {
+					let grid = $('.grid').imagesLoaded( function() {
+						grid.masonry({
+							itemSelector: '.grid-item',
+							columnWidth: '.grid-sizer',
+							percentPosition: true
+						});
 					});
-				});
+				}, 1000);
 			});
 		};
 		$scope.addAmount = function(){
