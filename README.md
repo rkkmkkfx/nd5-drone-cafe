@@ -1,5 +1,5 @@
-ClientApp  - https://enigmatic-savannah-46650.herokuapp.com/#!/
-KitchenApp - https://enigmatic-savannah-46650.herokuapp.com/#!/kitchen
+* ClientApp  - https://enigmatic-savannah-46650.herokuapp.com/#!/
+* KitchenApp - https://enigmatic-savannah-46650.herokuapp.com/#!/kitchen
 
 # Drone cafe
 
