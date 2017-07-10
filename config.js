@@ -50,7 +50,7 @@ module.exports = {
 		port: 4321
 	},
 	db: {
-		url: 'mongodb://localhost:27017/droneCafe',
+		url: 'mongodb://user:qwertyuiop@ds129462.mlab.com:29462/heroku_cz60j750',
 		data: require('./menu.json')
 	},
 	mealModel,
