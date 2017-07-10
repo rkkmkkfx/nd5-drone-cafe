@@ -2,7 +2,7 @@ const config = require('./config'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
 	app = module.exports = express(),
-	server = require('http').createServer(app),
+	server = require('https').createServer(app),
 	io = require('socket.io')(server);
 
 
